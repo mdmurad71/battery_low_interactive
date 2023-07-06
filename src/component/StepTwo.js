@@ -63,11 +63,11 @@ const handleFile=(event)=>{
 <div className='card' style={{width:'90%', margin:'10px', background:'rgba(0, 0, 0, 0.15)'}}>
     <div className='row justify-content-center m-3'>
         <div className='col-lg-6 col-md-6 col-sm-12'>
-            <h6>Project Name:</h6>
+            <h6>Project Name: {localStorage.getItem('name')}</h6>
         </div>
 
         <div className='col-lg-6 col-md-6 col-sm-12'>
-        <h6>Project Description:</h6>
+        <h6>Project Description: {localStorage.getItem('desc')}</h6>
 
         </div>
 
@@ -76,11 +76,11 @@ const handleFile=(event)=>{
 
     <div className='row justify-content-center m-3'>
         <div className='col-lg-6 col-md-6 col-sm-12'>
-            <h6>Client:</h6>
+            <h6>Client: {localStorage.getItem('client')}</h6>
         </div>
 
         <div className='col-lg-6 col-md-6 col-sm-12'>
-        <h6>Contractor:</h6>
+        <h6>Contractor: {localStorage.getItem('contractor')}</h6>
 
         </div>
 

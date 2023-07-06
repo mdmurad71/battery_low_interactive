@@ -30,22 +30,21 @@ const StepOne = () => {
 
     const postData = async (e) => {
         e.preventDefault();
-        const formData = {
-            name: inpval.name,
-            project_description: inpval.project_description,
-            client: inpval.client, 
-            contractor: inpval.contractor
-        }
-            axios.post(Api.AddStepOne, formData).then(res => {
-                console.log(res);
-                if (res.status === 200) {
-                    localStorage.setItem('token', res.data.token);
-                    history('/');
-                } else {
+        // const formData = {
+        //     project_name: inpval.project_name,
+        //     project_description: inpval.project_description,
+        //     client: inpval.client, 
+        //     contractor: inpval.contractor
+        // }
 
-                }
+                    localStorage.setItem('name', inpval.name);
+                    localStorage.setItem('desc', inpval.project_description);
+                    localStorage.setItem('client', inpval.client);
+                    localStorage.setItem('contractor', inpval.contractor);
+                    history('/step');
 
-            });
+
+       
         
     }
 
