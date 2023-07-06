@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
 import Papa from 'papaparse'
+import axios from 'axios';
+import Api from '../api/Api';
+import { useNavigate } from 'react-router-dom';
 
 
 const StepTwo = () => {
@@ -7,6 +10,35 @@ const StepTwo = () => {
     const [columnArray, setColumn]= useState([]);
     const [values, setValues]= useState([]);
 
+
+
+    const history = useNavigate();
+
+    const [inpval, setINP] = useState({
+        project_name: "",
+        project_description: "",
+        client: "",
+        contractor: "", 
+        max_x: "",
+        min_x:"",
+        max_y: "",
+        min_y:"",
+        max_z: "",
+        min_z:"",
+
+    })
+
+    const fetchData = (e) => {
+        const { name, value } = e.target;
+        setINP((preval) => {
+            return {
+                ...preval,
+                [name]: value
+            }
+        })
+    }
+
+console.log(inpval);
 
 
 const handleFile=(event)=>{
@@ -56,6 +88,60 @@ const handleFile=(event)=>{
     });
 }
 
+const postData =(e)=>{
+  e.preventDefault();
+
+  if(data.length > 0){
+
+    const formData = {
+      project_name: localStorage.getItem('name'),
+      project_description: localStorage.getItem('desc'),
+      client: localStorage.getItem('client'), 
+      contractor: localStorage.getItem('contractor'),
+      max_x: values.x,
+      min_x: values.a,
+      max_y: values.y,
+      min_y: values.b,
+      max_z: values.z,
+      min_z: values.c,
+
+    }
+
+  axios.post(Api.AddData, formData).then((res)=>{
+    if(res.status==200){
+      history('/result')
+    }
+  }).catch((err)=>{
+
+  })
+
+  }else{
+    const formDataTwo = {
+      project_name: localStorage.getItem('name'),
+      project_description: localStorage.getItem('desc'),
+      client: localStorage.getItem('client'), 
+      contractor: localStorage.getItem('contractor'),
+      max_x: inpval.max_x,
+      max_y: inpval.max_y,
+      min_x: inpval.min_x,
+      min_y: inpval.min_y,
+      max_z: inpval.max_z,
+      min_z: inpval.min_z,
+
+  }
+
+  axios.post(Api.AddData, formDataTwo).then((res)=>{
+    if(res.status==200){
+      history('/result')
+    }
+  }).catch((err)=>{
+
+  })
+  }
+
+          
+}
+
 
 
   return (
@@ -92,20 +178,20 @@ const handleFile=(event)=>{
         <br/>
 
 
-<form className='m-3'>
+<form className='m-3' onSubmit={postData}>
 
 <div classname="row mb-2">
   <div classname="col-lg-6 col-md-6 col-sm-6">
     <div className="form-group mb-3">
       <label htmlFor="exampleInputEmail1">Max_X</label>
-      <input type="Max_X" className="form-control" name='Max_X' value={values.x} placeholder="Max X" />
+      <input type="max_x" className="form-control" name='max_x' value={values.x} onChange={fetchData} placeholder="Max X" />
 
     </div>
   </div>
   <div classname="mb-2 col-lg-6 col-md-6 col-sm-6">
   <div className="form-group mb-3">
       <label htmlFor="exampleInputEmail1">Min_X</label>
-      <input type="Min_X" className="form-control" name='Min_X' value={values.a} placeholder="Min X" />
+      <input type="min_x" className="form-control" name='min_x' value={values.a} onChange={fetchData} placeholder="Min X" />
     </div>
   </div>
 </div>
@@ -114,14 +200,14 @@ const handleFile=(event)=>{
   <div classname="mb-2 col-lg-6 col-md-6 col-sm-6">
     <div className="form-group mb-3">
       <label htmlFor="exampleInputEmail1">Max_Y</label>
-      <input type="Max_Y" className="form-control" name='Max_Y' value={values.y} placeholder="Max Y" />
+      <input type="max_y" className="form-control" name='max_y' value={values.y} onChange={fetchData} placeholder="Max Y" />
 
     </div>
   </div>
   <div classname="mb-2 col-lg-6 col-md-6 col-sm-6">
   <div className="form-group mb-3">
       <label htmlFor="exampleInputEmail1">Min_Y</label>
-      <input type="Min_Y" className="form-control" name='Min_Y' value={values.b} placeholder="Min Y" />
+      <input type="min_y" className="form-control" name='min_y' value={values.b} onChange={fetchData} placeholder="Min Y" />
     </div>
   </div>
 </div>
@@ -132,14 +218,14 @@ const handleFile=(event)=>{
   <div classname="mb-2 col-lg-6 col-md-6 col-sm-6">
     <div className="form-group mb-3">
       <label htmlFor="exampleInputEmail1">Max_Z</label>
-      <input type="Max_Z" className="form-control" name='Max_Z' value={values.z} placeholder="Max Z" />
+      <input type="max_z" className="form-control" name='max_z' value={values.z} onChange={fetchData} placeholder="Max Z" />
 
     </div>
   </div>
   <div classname="mb-2 col-lg-6 col-md-6 col-sm-6">
   <div className="form-group mb-4">
       <label htmlFor="exampleInputEmail1">Min_Z</label>
-      <input type="Min_Z" className="form-control" name='Min_Z' value={values.c} placeholder="Min Z" />
+      <input type="min_z" className="form-control" name='min_z' value={values.c} onChange={fetchData} placeholder="Min Z" />
     </div>
   </div>
 
