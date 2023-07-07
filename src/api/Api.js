@@ -4,6 +4,7 @@ class Api {
 
 
     static AddData = this.url + "addData";
+    static getData = this.url + "getData";
 
 
 

@@ -145,10 +145,11 @@ const postData =(e)=>{
 
 
   return (
- <div class='container'>
+ <div className='container'>
 <div className='card' style={{width:'90%', margin:'10px', background:'rgba(0, 0, 0, 0.15)'}}>
     <div className='row justify-content-center m-3'>
-        <div className='col-lg-6 col-md-6 col-sm-12'>
+    <h1 className='text-center mb-5'>Step Two </h1>
+            <div className='col-lg-6 col-md-6 col-sm-12'>
             <h6>Project Name: {localStorage.getItem('name')}</h6>
         </div>
 
