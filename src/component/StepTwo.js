@@ -185,14 +185,14 @@ const postData =(e)=>{
   <div classname="col-lg-6 col-md-6 col-sm-6">
     <div className="form-group mb-3">
       <label htmlFor="exampleInputEmail1">Max_X</label>
-      <input type="max_x" className="form-control" name='max_x' value={values.x} onChange={fetchData} placeholder="Max X" />
+      <input type="max_x" className="form-control" name='max_x' value={values.x} onChange={fetchData} placeholder="Max X" required />
 
     </div>
   </div>
   <div classname="mb-2 col-lg-6 col-md-6 col-sm-6">
   <div className="form-group mb-3">
       <label htmlFor="exampleInputEmail1">Min_X</label>
-      <input type="min_x" className="form-control" name='min_x' value={values.a} onChange={fetchData} placeholder="Min X" />
+      <input type="min_x" className="form-control" name='min_x' value={values.a} onChange={fetchData} placeholder="Min X" required/>
     </div>
   </div>
 </div>
@@ -201,14 +201,14 @@ const postData =(e)=>{
   <div classname="mb-2 col-lg-6 col-md-6 col-sm-6">
     <div className="form-group mb-3">
       <label htmlFor="exampleInputEmail1">Max_Y</label>
-      <input type="max_y" className="form-control" name='max_y' value={values.y} onChange={fetchData} placeholder="Max Y" />
+      <input type="max_y" className="form-control" name='max_y' value={values.y} onChange={fetchData} placeholder="Max Y" required/>
 
     </div>
   </div>
   <div classname="mb-2 col-lg-6 col-md-6 col-sm-6">
   <div className="form-group mb-3">
       <label htmlFor="exampleInputEmail1">Min_Y</label>
-      <input type="min_y" className="form-control" name='min_y' value={values.b} onChange={fetchData} placeholder="Min Y" />
+      <input type="min_y" className="form-control" name='min_y' value={values.b} onChange={fetchData} placeholder="Min Y" required/>
     </div>
   </div>
 </div>
@@ -219,14 +219,14 @@ const postData =(e)=>{
   <div classname="mb-2 col-lg-6 col-md-6 col-sm-6">
     <div className="form-group mb-3">
       <label htmlFor="exampleInputEmail1">Max_Z</label>
-      <input type="max_z" className="form-control" name='max_z' value={values.z} onChange={fetchData} placeholder="Max Z" />
+      <input type="max_z" className="form-control" name='max_z' value={values.z} onChange={fetchData} placeholder="Max Z" required/>
 
     </div>
   </div>
   <div classname="mb-2 col-lg-6 col-md-6 col-sm-6">
   <div className="form-group mb-4">
       <label htmlFor="exampleInputEmail1">Min_Z</label>
-      <input type="min_z" className="form-control" name='min_z' value={values.c} onChange={fetchData} placeholder="Min Z" />
+      <input type="min_z" className="form-control" name='min_z' value={values.c} onChange={fetchData} placeholder="Min Z" required/>
     </div>
   </div>
 

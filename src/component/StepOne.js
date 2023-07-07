@@ -68,19 +68,19 @@ const StepOne = () => {
                 <div className="row">
                     <div class="mb-3 col-lg-12 col-md-12 col-12">
                         <label for="exampleInputEmail1" class="form-label">Project Name</label>
-                        <input type="text" value={inpval.name} onChange={setdata} name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                        <input type="text" value={inpval.name} onChange={setdata} name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required />
                     </div>
                     <div class="mb-3 col-lg-12 col-md-12 col-12">
                         <label for="exampleInputPassword1" class="form-label">Project Description</label>
-                        <textarea type="project_description" value={inpval.project_description} onChange={setdata} name="project_description" rows={3} class="form-control" id="exampleInputPassword1" />
+                        <textarea type="project_description" value={inpval.project_description} onChange={setdata} name="project_description" rows={3} class="form-control" id="exampleInputPassword1" required />
                     </div>
                     <div class="mb-3 col-lg-12 col-md-12 col-12">
                 <label for="exampleInputPassword1" class="form-label">Client</label>
-                <input type="text" value={inpval.client} onChange={setdata} name="client" class="form-control" id="exampleInputPassword1" />
+                <input type="text" value={inpval.client} onChange={setdata} name="client" class="form-control" id="exampleInputPassword1" required/>
             </div>
                     <div class="mb-3 col-lg-12 col-md-12 col-12">
                         <label for="exampleInputPassword1" class="form-label">Contractor</label>
-                        <input type="text" value={inpval.contractor} onChange={setdata} name="contractor" class="form-control" id="exampleInputPassword1" />
+                        <input type="text" value={inpval.contractor} onChange={setdata} name="contractor" class="form-control" id="exampleInputPassword1" required/>
                     </div>
 
 
